@@ -84,7 +84,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //Shed owner login
     public Boolean checkusernamepassword2(String username, String password){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from userInfo where username = ? and password = ? and role = 'Shed Owner'", new String[] {username,password});
+        Cursor cursor = db.rawQuery("select * from userInfo where username = ? and password = ? and role = 'ShedOwner'", new String[] {username,password});
         if(cursor.getCount() > 0){
             return true;
         }else

@@ -17,7 +17,7 @@ public class SignupActivity extends AppCompatActivity {
 
     EditText userName, password, confirmPassword;
     Spinner role;
-    Button signup;
+    Button signup,alreadyHave;
     DBHandler myDB;
 
     @Override
@@ -30,12 +30,21 @@ public class SignupActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.txtPasswordSignup);
         confirmPassword = (EditText) findViewById(R.id.txtConfirmPassword);
         signup = (Button) findViewById(R.id.btnSignUp);
+        alreadyHave = (Button) findViewById(R.id.btnAlreadySignup);
 
         //Retrieve dropdown strings
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.userType, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         role.setAdapter(adapter);
 
         myDB = new DBHandler(this);
+
+        alreadyHave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         signup.setOnClickListener(new View.OnClickListener(){
 
@@ -55,14 +64,10 @@ public class SignupActivity extends AppCompatActivity {
                         if(userCkeckResult == false){
                            Boolean regResult =  myDB.addInfo(user,rrole,pass);
                            if(regResult == true){
-                               Toast.makeText(SignupActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
-                               System.out.println("username:"+user+ "\npassword:"+pass+ "\nrole:"+rrole);
-                                   Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+                                   Toast.makeText(SignupActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
+                                   System.out.println("username:"+user+ "\npassword:"+pass+ "\nrole:"+rrole);
+                                   Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                    startActivity(intent);
-                           }else if(regResult == true){
-                               Toast.makeText(SignupActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
-                               Intent intent = new Intent(getApplicationContext(), ShedOwnerActivity.class);
-                               startActivity(intent);
                            }else{
                                Toast.makeText(SignupActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
                            }

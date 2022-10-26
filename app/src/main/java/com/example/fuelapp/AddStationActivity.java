@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.fuelapp.domain.Station;
+import com.example.fuelapp.service.RetrofitClient;
 import com.example.fuelapp.service.StationService;
 
 import retrofit2.Call;
@@ -19,7 +20,7 @@ import retrofit2.Response;
 
 public class AddStationActivity extends AppCompatActivity {
 
-    StationService stationService;
+
     EditText shedName;
     EditText stationPhoneNo;
     EditText fuelStatus;
@@ -67,20 +68,21 @@ public class AddStationActivity extends AppCompatActivity {
 
     //Add station method
     public void addStation(String sName,String stationPhoneNo, String fStatus, String fType, String sLocation){
-        Call<Station> call = stationService.addStation(sName, stationPhoneNo,fStatus,fType, sLocation);
-        call.enqueue(new Callback<Station>() {
-            @Override
-            public void onResponse(Call<Station> call, Response<Station> response) {
-                if(response.isSuccessful()){
-                    Toast.makeText(AddStationActivity.this, "Fuel Added successfully!", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Station> call, Throwable t) {
-                Log.e("ERROR: ", t.getMessage());
-            }
-        });
+//        StationService stationService = RetrofitClient.getClient().create(StationService.class);
+//        Call<Station> call = stationService.addStation(sName, stationPhoneNo,fStatus,fType, sLocation);
+//        call.enqueue(new Callback<Station>() {
+//            @Override
+//            public void onResponse(Call<Station> call, Response<Station> response) {
+//                if(response.isSuccessful()){
+//                    Toast.makeText(AddStationActivity.this, "Fuel Added successfully!", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Station> call, Throwable t) {
+//                Log.e("ERROR: ", t.getMessage());
+//            }
+//        });
     }
 
 }

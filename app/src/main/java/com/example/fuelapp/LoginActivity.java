@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         myDB = new DBHandler(this);
 
 
+
         //SignIn
         signIn.setOnClickListener(new View.OnClickListener(){
 
