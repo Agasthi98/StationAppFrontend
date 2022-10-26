@@ -31,6 +31,7 @@ public class SignupActivity extends AppCompatActivity {
         confirmPassword = (EditText) findViewById(R.id.txtConfirmPassword);
         signup = (Button) findViewById(R.id.btnSignUp);
 
+        //Retrieve dropdown strings
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.userType, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         role.setAdapter(adapter);
 

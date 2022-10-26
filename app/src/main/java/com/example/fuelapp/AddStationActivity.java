@@ -64,6 +64,8 @@ public class AddStationActivity extends AppCompatActivity {
         });
 
     }
+
+    //Add station method
     public void addStation(String sName,String stationPhoneNo, String fStatus, String fType, String sLocation){
         Call<Station> call = stationService.addStation(sName, stationPhoneNo,fStatus,fType, sLocation);
         call.enqueue(new Callback<Station>() {

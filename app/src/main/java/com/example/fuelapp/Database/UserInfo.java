@@ -8,6 +8,7 @@ public final class UserInfo {
     private UserInfo() {}
 
     /* Inner class that defines the table contents */
+    //Database table name & columns
     public static class Users implements BaseColumns {
         public static final String TABLE_NAME = "userInfo";
         public static final String COLUMN_1 = "username";

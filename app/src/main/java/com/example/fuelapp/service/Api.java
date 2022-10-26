@@ -4,6 +4,7 @@ public class Api {
 
     private Api(){
     };
+    //link backend port
     public static final String API_URL = "http://10.0.2.2:8000/";
 
     public static StationService getStationService(){

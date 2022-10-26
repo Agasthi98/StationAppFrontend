@@ -27,12 +27,11 @@ public class LoginActivity extends AppCompatActivity {
 
         userName = (EditText) findViewById(R.id.txtUserNameLogin);
         password = (EditText) findViewById(R.id.txtPasswordLogin);
-
         signIn = (Button) findViewById(R.id.btnSignIn);
         myDB = new DBHandler(this);
 
 
-
+        //SignIn
         signIn.setOnClickListener(new View.OnClickListener(){
 
             @Override
