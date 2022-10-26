@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FuelApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AddStationActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
@@ -25,7 +28,7 @@
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".AddStationActivity"
+            android:name=".GetStarted"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
