@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FuelApp</string>
+    <string-array name="userType">
+        <item>User</item>
+        <item>ShedOwner</item>
+    </string-array>
+</resources>
