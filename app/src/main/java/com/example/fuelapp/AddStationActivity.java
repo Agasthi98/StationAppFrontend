@@ -20,7 +20,11 @@ import retrofit2.Response;
 public class AddStationActivity extends AppCompatActivity {
 
     StationService stationService;
-    EditText shedName, stationPhoneNo, fuelStatus, fuelType, stationLocation;
+    EditText shedName;
+    EditText stationPhoneNo;
+    EditText fuelStatus;
+    EditText fuelType;
+    EditText stationLocation;
     Button addStation;
 
     @Override
@@ -28,7 +32,7 @@ public class AddStationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_station);
 
-        shedName = (EditText) findViewById(R.id.txtShedName);
+        shedName = (EditText) findViewById(R.id.txtStationName);
         stationPhoneNo = (EditText) findViewById(R.id.txtFuelPhoneNo);
         fuelStatus = (EditText) findViewById(R.id.txtFuelStatus);
         fuelType = (EditText) findViewById(R.id.txtFuelType);
@@ -36,29 +40,32 @@ public class AddStationActivity extends AppCompatActivity {
         addStation = (Button) findViewById(R.id.btnAddStation);
 
 
+
         addStation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Station s = new Station();
 
-                s.setStationName(shedName.getText().toString());
-                s.setStationPhoneNo(stationPhoneNo.getText().toString());
-                s.setFuelStatus(fuelStatus.getText().toString());
-                s.setFuelType(fuelType.getText().toString());
-                s.setStationLocation(stationLocation.getText().toString());
+                String shed_Name = shedName.getText().toString();
+                String shed_Pno = stationPhoneNo.getText().toString();
+                String fuel_status = fuelStatus.getText().toString();
+                String fuel_type = fuelType.getText().toString();
+                String station_loc = stationLocation.getText().toString();
 
-
-                addStation(s);
-                System.out.println(s);
-                Intent intent = new Intent(getApplicationContext(),ShedOwnerActivity.class);
-                startActivity(intent);
+                System.out.println(""+shed_Name+"\n"+shed_Pno+"\n"+fuel_status+"\n"+fuel_type+"\n"+station_loc);
+                if(shed_Name.equals("") || shed_Pno.equals("") || fuel_status.equals("")|| fuel_type.equals("")|| station_loc.equals("")){
+                    Toast.makeText(AddStationActivity.this, "Fill the blanks", Toast.LENGTH_SHORT).show();
+                }else{
+                    addStation(shed_Name,shed_Pno,fuel_status,fuel_type,station_loc);
+                    System.out.println("run");
+                    Intent intent = new Intent(getApplicationContext(),ShedOwnerActivity.class);
+                    startActivity(intent);
+                }
             }
         });
+
     }
-
-
-    public void addStation(Station station){
-        Call<Station> call = stationService.addStation(station);
+    public void addStation(String sName,String stationPhoneNo, String fStatus, String fType, String sLocation){
+        Call<Station> call = stationService.addStation(sName, stationPhoneNo,fStatus,fType, sLocation);
         call.enqueue(new Callback<Station>() {
             @Override
             public void onResponse(Call<Station> call, Response<Station> response) {
@@ -73,4 +80,5 @@ public class AddStationActivity extends AppCompatActivity {
             }
         });
     }
+
 }

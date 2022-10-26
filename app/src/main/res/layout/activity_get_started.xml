@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".LoginActivity">
+    tools:context=".GetStarted">
 
     <ImageView
         android:id="@+id/getStartedImage"
@@ -21,7 +21,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btnGetStarted"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"

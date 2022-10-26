@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".LoginActivity">
+    tools:context=".AddStationActivity">
 
     <ImageView
         android:id="@+id/fuelImage"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/gas" />
 
     <TextView
-        android:id="@+id/txtSignUp"
+        android:id="@+id/txtAddStation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -40,7 +40,7 @@
         >
 
         <EditText
-            android:id="@+id/txtShedName"
+            android:id="@+id/txtStationName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
