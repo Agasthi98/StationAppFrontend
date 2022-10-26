@@ -5,6 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static Retrofit retrofit;
+    //initialize a connectivity url backend and frontend
     public static final String API_URL = "http://10.0.2.2:8000/";
 
     public static Retrofit getRetrofitInstance(){

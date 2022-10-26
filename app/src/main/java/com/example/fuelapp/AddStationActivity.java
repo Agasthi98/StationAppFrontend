@@ -42,7 +42,7 @@ public class AddStationActivity extends AppCompatActivity {
         addStation = (Button) findViewById(R.id.btnAddStation);
 
 
-
+        //add station on click listner
         addStation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

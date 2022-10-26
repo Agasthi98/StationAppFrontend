@@ -10,6 +10,7 @@ import retrofit2.http.POST;
 
 public interface StationService {
 
+    //Api route
     @FormUrlEncoded
     @POST("api/station")
     Call<Station> createStation(@Field("stationName") String stationName,

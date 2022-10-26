@@ -21,6 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     Spinner role;
     Button signIn;
     DBHandler myDB;
+
+    //declare static variables
     public static String userNAME;
     public static String phoneNUMBER;
     public static String userROLE;
@@ -37,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        //SignIn
+        //SignIn on click
         signIn.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -45,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 String phone = phoneNo.getText().toString();
                 String pass = password.getText().toString();
 
-
+                    //array list for get registred userdetails
                     ArrayList checkuserpass = myDB.getUserInfo(phone,pass);
                         if(!checkuserpass.isEmpty()){
 
@@ -59,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                             phoneNUMBER = phoneNo;
                             userROLE = role;
 
+                            //check the password and phone
                             if(password.equals(pass) && phoneNo.equalsIgnoreCase(phone))
                                 if(role.equalsIgnoreCase("User")){
                                     Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();

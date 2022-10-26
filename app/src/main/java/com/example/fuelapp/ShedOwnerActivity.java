@@ -19,6 +19,7 @@ public class ShedOwnerActivity extends AppCompatActivity {
         addAStation = (Button) findViewById(R.id.navigateToAddStation);
         updateAStation = (Button) findViewById(R.id.navigateToUpdateStation);
 
+        //add station onclick listner
         addAStation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,6 +28,7 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
+        //update station
         updateAStation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

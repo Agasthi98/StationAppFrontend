@@ -49,7 +49,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         //Registration schema
-// Create a new map of values, where column names are the keys
+        // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(UserInfo.Users.COLUMN_1, userName);
         values.put(UserInfo.Users.COLUMN_2, phoneNo);
@@ -57,7 +57,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(UserInfo.Users.COLUMN_4, password);
 
         //Insert user details
-// Insert the new row, returning the primary key value of the new row
+        // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(UserInfo.Users.TABLE_NAME, null, values);
         if(newRowId == -1){
             return false;

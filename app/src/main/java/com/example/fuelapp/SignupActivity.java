@@ -47,6 +47,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
+        //sign up on click listner
         signup.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -57,10 +58,12 @@ public class SignupActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String cPass = confirmPassword.getText().toString();
 
+                //check the fields are empty
                 if(user.equals("") || rrole.equals("") || pass.equals("") || cPass.equals("")){
                     Toast.makeText(SignupActivity.this, "Fill All the field", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    //check the password and confirm password
                     if(pass.equals(cPass)){
                         Boolean userCkeckResult =  myDB.checkusername((phone));
                         if(userCkeckResult == false){
