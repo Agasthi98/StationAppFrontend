@@ -11,13 +11,12 @@ import retrofit2.http.POST;
 public interface StationService {
 
     @FormUrlEncoded
-    @POST("api/station/")
-    Call<Station> addStation(
-            @Field("StationName") String StationName,
-            @Field("StationPhoneNo") String StationPhoneNo,
-            @Field("FuelStatus") String FuelStatus,
-            @Field("FuelType") String FuelType,
-            @Field("StationLocation") String StatusLocation
+    @POST("api/station")
+    Call<Station> createStation(@Field("stationName") String stationName,
+                          @Field("stationPhoneNo") String stationPhoneNo,
+                          @Field("fuelStatus") String fuelStatus,
+                          @Field("fuelType") String fuelType,
+                          @Field("stationLocation") String stationLocation
     );
 
 }

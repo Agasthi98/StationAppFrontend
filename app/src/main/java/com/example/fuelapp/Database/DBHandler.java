@@ -6,10 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DBHandler extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
     //Database creation
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "userInfo.db";
 
     public DBHandler(Context context) {
@@ -34,14 +36,15 @@ public class DBHandler extends SQLiteOpenHelper {
                     UserInfo.Users._ID + " INTEGER PRIMARY KEY," +
                     UserInfo.Users.COLUMN_1 + " TEXT," +
                     UserInfo.Users.COLUMN_2 + " TEXT," +
-                    UserInfo.Users.COLUMN_3 + " TEXT)";
+                    UserInfo.Users.COLUMN_3 + " TEXT,"+
+                    UserInfo.Users.COLUMN_4 + " TEXT)";
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + UserInfo.Users.TABLE_NAME;
 
 
     //User registration
-    public Boolean addInfo(String userName, String role, String password){
+    public Boolean addInfo(String userName,String phoneNo, String role, String password){
         // Gets the data repository in write mode
         SQLiteDatabase db = getWritableDatabase();
 
@@ -49,8 +52,9 @@ public class DBHandler extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(UserInfo.Users.COLUMN_1, userName);
-        values.put(UserInfo.Users.COLUMN_2, role);
-        values.put(UserInfo.Users.COLUMN_3, password);
+        values.put(UserInfo.Users.COLUMN_2, phoneNo);
+        values.put(UserInfo.Users.COLUMN_3, role);
+        values.put(UserInfo.Users.COLUMN_4, password);
 
         //Insert user details
 // Insert the new row, returning the primary key value of the new row
@@ -62,9 +66,9 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Check existing user
-    public Boolean checkusername(String username){
+    public Boolean checkusername(String phoneNo){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from userInfo where username = ?", new String[] {username});
+        Cursor cursor = db.rawQuery("select * from userInfo where phoneNo = ?", new String[] {phoneNo});
         if(cursor.getCount() > 0){
             return true;
         }else
@@ -72,23 +76,39 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Normal user login
-    public Boolean checkusernamepassword(String username, String password){
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from userInfo where username = ? and password = ? and role = 'User'", new String[] {username,password});
-        if(cursor.getCount() > 0){
-            return true;
-        }else
-            return false;
-    }
+    public ArrayList getUserInfo(String phoneNo, String password){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from userInfo where phoneNo = ? and password = ? and role = 'User'", new String[] {phoneNo,password});
 
-    //Shed owner login
-    public Boolean checkusernamepassword2(String username, String password){
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from userInfo where username = ? and password = ? and role = 'ShedOwner'", new String[] {username,password});
-        if(cursor.getCount() > 0){
-            return true;
-        }else
-            return false;
+        ArrayList arrayList = new ArrayList();
+        if(cursor.getCount()>=1){
+            while(cursor.moveToNext()){
+                arrayList.add(cursor.getInt(0));
+                arrayList.add(cursor.getString(1));
+                arrayList.add(cursor.getString(2));
+                arrayList.add(cursor.getString(3));
+                arrayList.add(cursor.getString(4));
+            }
+            cursor.close();
+        }
+        return arrayList;
     }
+    //Shed owner login
+//    public ArrayList getInfo(String phoneNo, String password){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery("select * from userInfo where phoneNo = ? and password = ? and role = 'ShedOwner'", new String[] {phoneNo,password});
+//
+//        ArrayList arrayList = new ArrayList();
+//        if(cursor.getCount()>=1){
+//            while(cursor.moveToNext()){
+//                arrayList.add(cursor.getInt(0));
+//                arrayList.add(cursor.getString(1));
+//                arrayList.add(cursor.getString(2));
+//                arrayList.add(cursor.getString(3));
+//            }
+//            cursor.close();
+//        }
+//        return arrayList;
+//    }
 
 }

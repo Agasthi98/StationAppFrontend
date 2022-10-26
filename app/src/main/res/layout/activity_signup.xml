@@ -35,8 +35,9 @@
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="-20dp"
         android:background="@drawable/round_back"
+        android:layout_marginBottom="35dp"
         >
 
         <EditText
@@ -45,6 +46,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:hint="Username"
+
             android:inputType="text"
             android:maxLines="1"
             android:paddingStart="20dp"
@@ -65,8 +67,40 @@
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/round_back"
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="-20dp"
+        >
+
+        <EditText
+            android:id="@+id/txtPhoneNo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="Phone No"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_lock" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="-20dp"
+        android:background="@drawable/round_back"
+        android:layout_marginBottom="35dp"
         >
 
         <Spinner
@@ -80,8 +114,9 @@
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/round_back"
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="-20dp"
         >
 
         <EditText
@@ -110,8 +145,9 @@
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/round_back"
+        android:layout_marginBottom="-30dp"
+        android:layout_marginTop="-20dp"
         >
 
         <EditText
@@ -140,8 +176,9 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="-30dp"
         android:background="@drawable/round_background_primary"
         android:text="Sign Up"
         android:textAllCaps="false"

@@ -15,7 +15,7 @@ import com.example.fuelapp.Database.DBHandler;
 
 public class SignupActivity extends AppCompatActivity {
 
-    EditText userName, password, confirmPassword;
+    EditText userName, password, confirmPassword,phoneNo;
     Spinner role;
     Button signup,alreadyHave;
     DBHandler myDB;
@@ -30,6 +30,7 @@ public class SignupActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.txtPasswordSignup);
         confirmPassword = (EditText) findViewById(R.id.txtConfirmPassword);
         signup = (Button) findViewById(R.id.btnSignUp);
+        phoneNo = (EditText) findViewById(R.id.txtPhoneNo);
         alreadyHave = (Button) findViewById(R.id.btnAlreadySignup);
 
         //Retrieve dropdown strings
@@ -52,6 +53,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String rrole = role.getSelectedItem().toString();
                 String user = userName.getText().toString();
+                String phone = phoneNo.getText().toString();
                 String pass = password.getText().toString();
                 String cPass = confirmPassword.getText().toString();
 
@@ -60,9 +62,9 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 else{
                     if(pass.equals(cPass)){
-                        Boolean userCkeckResult =  myDB.checkusername((user));
+                        Boolean userCkeckResult =  myDB.checkusername((phone));
                         if(userCkeckResult == false){
-                           Boolean regResult =  myDB.addInfo(user,rrole,pass);
+                           Boolean regResult =  myDB.addInfo(user,phone,rrole,pass);
                            if(regResult == true){
                                    Toast.makeText(SignupActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
                                    System.out.println("username:"+user+ "\npassword:"+pass+ "\nrole:"+rrole);

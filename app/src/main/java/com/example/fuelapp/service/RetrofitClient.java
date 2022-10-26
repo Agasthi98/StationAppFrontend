@@ -4,11 +4,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private static Retrofit retrofit = null;
+    private static Retrofit retrofit;
+    public static final String API_URL = "http://10.0.2.2:8000/";
 
-    public static Retrofit getClient(String url){
+    public static Retrofit getRetrofitInstance(){
         if(retrofit == null){
-            retrofit = new Retrofit.Builder().baseUrl(url)
+            retrofit = new Retrofit.Builder().baseUrl(API_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

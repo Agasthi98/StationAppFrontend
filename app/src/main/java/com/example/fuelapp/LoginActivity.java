@@ -12,20 +12,25 @@ import android.widget.Toast;
 
 import com.example.fuelapp.Database.DBHandler;
 
+import java.util.ArrayList;
+
 public class LoginActivity extends AppCompatActivity {
 
 
-    EditText userName, password;
+    EditText password, phoneNo;
     Spinner role;
     Button signIn;
     DBHandler myDB;
+    public static String userNAME;
+    public static String phoneNUMBER;
+    public static String userROLE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        userName = (EditText) findViewById(R.id.txtUserNameLogin);
+        phoneNo = (EditText) findViewById(R.id.txtuserPhoneNo);
         password = (EditText) findViewById(R.id.txtPasswordLogin);
         signIn = (Button) findViewById(R.id.btnSignIn);
         myDB = new DBHandler(this);
@@ -37,29 +42,38 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String user = userName.getText().toString();
+                String phone = phoneNo.getText().toString();
                 String pass = password.getText().toString();
 
 
-                if(user.equals("") || pass.equals("")) {
-                    Toast.makeText(LoginActivity.this, "Please input user details!", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Boolean checkuserpass = myDB.checkusernamepassword(user,pass);
-                    Boolean checkuserpass2 = myDB.checkusernamepassword2(user,pass);
-                        if(checkuserpass == true){
-                            Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-                            startActivity(intent);
-                        }else if(checkuserpass2 == true){
+                    ArrayList checkuserpass = myDB.getUserInfo(phone,pass);
+                        if(!checkuserpass.isEmpty()){
+
+                            String Id = checkuserpass.get(0).toString();
+                            String username = checkuserpass.get(1).toString();
+                            String phoneNo = checkuserpass.get(2).toString();
+                            String role = checkuserpass.get(3).toString();
+                            String password = checkuserpass.get(4).toString();
+
+                            userNAME = username;
+                            phoneNUMBER = phoneNo;
+                            userROLE = role;
+
+                            if(password.equals(pass) && phoneNo.equalsIgnoreCase(phone))
+                                if(role.equalsIgnoreCase("User")){
+                                    Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+                                    startActivity(intent);
+                                }else{
+                                    Toast.makeText(LoginActivity.this, "Login failed..", Toast.LENGTH_SHORT).show();
+                                }
+                        }else {
                             Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), ShedOwnerActivity.class);
                             startActivity(intent);
-                        }else{
-                            Toast.makeText(LoginActivity.this, "Login failed..", Toast.LENGTH_SHORT).show();
+
                         }
                     }
-                }
         });
 
     }

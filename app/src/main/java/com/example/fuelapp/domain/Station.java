@@ -6,28 +6,17 @@ import com.google.gson.annotations.SerializedName;
 //Create Station model
 public class Station {
 
-    @SerializedName("_id")
-    @Expose
+
     private String id;
 
-    @SerializedName("stationName")
-    @Expose
     private String stationName;
 
-    @SerializedName("stationPhoneNo")
-    @Expose
     private String stationPhoneNo;
 
-    @SerializedName("fuelStatus")
-    @Expose
     private String fuelStatus;
 
-    @SerializedName("fuelType")
-    @Expose
     private String fuelType;
 
-    @SerializedName("stationLocation")
-    @Expose
     private String stationLocation;
 
     public Station(){

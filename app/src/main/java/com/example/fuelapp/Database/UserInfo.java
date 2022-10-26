@@ -12,7 +12,8 @@ public final class UserInfo {
     public static class Users implements BaseColumns {
         public static final String TABLE_NAME = "userInfo";
         public static final String COLUMN_1 = "username";
-        public static final String COLUMN_2 = "role";
-        public static final String COLUMN_3 = "password";
+        public static final String COLUMN_2 = "phoneNo";
+        public static final String COLUMN_3 = "role";
+        public static final String COLUMN_4 = "password";
     }
 }
