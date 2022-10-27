@@ -5,43 +5,228 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".ShedOwnerActivity">
 
+    <TextView
+        android:id="@+id/txtStationPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:text="Station dashboard"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
 
     <TextView
-        android:id="@+id/shedOwnertxt"
+        android:id="@+id/txtOpenTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Shed Owner"
-        android:textSize="30sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:text="Open Time: "
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="80dp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/txtOpenTimeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-26dp"
+        android:layout_marginStart="150dp"
+        android:text=" "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtCloseTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_marginStart="20dp"
+        android:text="Close Time "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtCloseTimeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-26dp"
+        android:layout_marginStart="150dp"
+        android:text=" "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtDieselDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="150dp"
+        android:text="Diesel "
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtLitersDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:text="Liters:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtDieselLiterValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="-28dp"
+        android:text=":"
         android:textColor="@color/black"
-        />
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtQueueDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-30dp"
+        android:layout_marginStart="230dp"
+        android:text="Queue:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtQueueDisplayValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-27dp"
+        android:layout_marginStart="300dp"
+        android:text=":"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/navigateToAddStation"
+        android:id="@+id/btnAddDiesel"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="40dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_background_red"
-        android:text="Add a new station"
+        android:background="@drawable/addbutton"
+        android:text="Add Diesel"
         android:textAllCaps="false"
         android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/txtPetrolDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="150dp"
+        android:text="Petrol "
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtPetrolLitersDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:text="Liters:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtPetrolLitersDisplayValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-27dp"
+        android:layout_marginStart="110dp"
+        android:text=":"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtPetrolQueueDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-30dp"
+        android:layout_marginStart="230dp"
+        android:text="Queue:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtPetrolQueueDisplayValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-26dp"
+        android:layout_marginStart="300dp"
+        android:text=":"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/navigateToUpdateStation"
+        android:id="@+id/btnAddPetrol"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="40dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_background_red"
-        android:text="Update a station details"
+        android:background="@drawable/addbutton"
+        android:text="Add Petrol"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/txtShedOwnerLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:text="Location "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtShedOwnerLocationvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-28dp"
+        android:layout_marginStart="120dp"
+        android:text=": "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnStationLogOut"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/addbutton"
+        android:text="Add Petrol"
         android:textAllCaps="false"
         android:textColor="@color/white" />
 

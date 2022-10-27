@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.example.fuelapp.domain.Station;
+import com.example.fuelapp.domain.FuelModel;
 import com.example.fuelapp.service.RetrofitClient;
 import com.example.fuelapp.service.StationService;
 
@@ -71,10 +71,10 @@ public class AddStationActivity extends AppCompatActivity {
     public void addStation(String sName,String stationPhoneNo, String fStatus, String fType, String sLocation){
         System.out.println("Agasthi"+sName+stationPhoneNo+fStatus+fType+sLocation);
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
-        Call<Station> call = stationService.createStation(sName, stationPhoneNo,fStatus,fType, sLocation);
-        call.enqueue(new Callback<Station>() {
+        Call<FuelModel> call = stationService.createStation(sName, stationPhoneNo,fStatus,fType, sLocation);
+        call.enqueue(new Callback<FuelModel>() {
             @Override
-            public void onResponse(Call<Station> call, Response<Station> response) {
+            public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {
                 if(response.isSuccessful()){
                     Toast.makeText(AddStationActivity.this, "Fuel Added successfully!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), ShedOwnerActivity.class);
@@ -83,7 +83,7 @@ public class AddStationActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Station> call, Throwable t) {
+            public void onFailure(Call<FuelModel> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });

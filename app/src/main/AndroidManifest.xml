@@ -16,6 +16,12 @@
         android:theme="@style/Theme.FuelApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ShedOwnerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OwnerAddDiesel"
+            android:exported="false" />
+        <activity
             android:name=".StationOwnerSignUp"
             android:exported="false" />
         <activity
@@ -28,13 +34,13 @@
             android:name=".UserActivity"
             android:exported="false" />
         <activity
-            android:name=".ShedOwnerActivity"
+            android:name=".GetStarted"
             android:exported="false" />
         <activity
             android:name=".UserSignupActivity"
             android:exported="false" />
         <activity
-            android:name=".GetStarted"
+            android:name=".OwnerAddPetrol"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
