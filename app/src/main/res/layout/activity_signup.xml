@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".SignupActivity">
+    tools:context=".UserSignupActivity">
 
     <ImageView
         android:id="@+id/fuelImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="-30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
         app:srcCompat="@drawable/fuel_1" />
@@ -98,15 +98,30 @@
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="-20dp"
         android:background="@drawable/round_back"
         android:layout_marginBottom="35dp"
+        android:layout_marginTop="-20dp"
         >
 
-        <Spinner
-            android:id="@+id/spinner_Signup"
+        <EditText
+            android:id="@+id/txtVehicle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="Vehicle"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_lock" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -194,5 +209,14 @@
         android:text="I have an account"
         android:textAllCaps="false"
         android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/txtNavigateStationOwnerRegistration"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Don't Have a Station? Sign up as a station owner"
+        android:textAlignment="center"
+        />
 
 </LinearLayout>

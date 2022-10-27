@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+tools:context=".StationOwnerSignUp">
+
+<ImageView
+    android:id="@+id/fuelImage"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_marginStart="35dp"
+    android:layout_marginTop="-30dp"
+    android:layout_marginEnd="30dp"
+    android:layout_marginBottom="30dp"
+    app:srcCompat="@drawable/fuel_1" />
+
+<TextView
+    android:id="@+id/txtStationSignUp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="Station Owner Sign Up"
+    android:textSize="30sp"
+    android:textStyle="bold"
+    android:textColor="@color/black"
+    android:layout_marginBottom="40dp"
+    />
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/round_back"
+    android:layout_marginBottom="35dp"
+    >
+
+    <EditText
+        android:id="@+id/txtStationName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:hint="Station Name"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_user" />
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="@drawable/round_back"
+    android:layout_marginBottom="35dp"
+    android:layout_marginTop="-20dp"
+    >
+
+    <EditText
+        android:id="@+id/txtStationPhoneNo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:hint="Phone No"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_lock" />
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="@drawable/round_back"
+    android:layout_marginBottom="35dp"
+    android:layout_marginTop="-20dp"
+    >
+
+    <EditText
+        android:id="@+id/txtStationLocation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:hint="Location"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_lock" />
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="@drawable/round_back"
+    android:layout_marginBottom="35dp"
+    android:layout_marginTop="-20dp"
+    >
+
+    <EditText
+        android:id="@+id/txtStationPassword"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_lock" />
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="@drawable/round_back"
+    android:layout_marginBottom="-30dp"
+    android:layout_marginTop="-20dp"
+    >
+
+    <EditText
+        android:id="@+id/txtStationConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_lock" />
+</RelativeLayout>
+
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btnStationOwnerSignUp"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="-30dp"
+    android:background="@drawable/round_background_primary"
+    android:text="Sign Up"
+    android:textAllCaps="false"
+    android:textColor="@color/white" />
+
+</LinearLayout>

@@ -2,20 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fuelapp">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Localhost internet access -->
-    <uses-permission  android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Localhost internet access -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:networkSecurityConfig="@xml/config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FuelApp"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".StationOwnerSignUp"
+            android:exported="false" />
         <activity
             android:name=".AddStationActivity"
             android:exported="false" />
@@ -29,7 +31,7 @@
             android:name=".ShedOwnerActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".UserSignupActivity"
             android:exported="false" />
         <activity
             android:name=".GetStarted"

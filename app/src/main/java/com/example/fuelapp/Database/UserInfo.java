@@ -14,6 +14,7 @@ public final class UserInfo {
         public static final String COLUMN_1 = "username";
         public static final String COLUMN_2 = "phoneNo";
         public static final String COLUMN_3 = "role";
-        public static final String COLUMN_4 = "password";
+        public static final String COLUMN_4 = "vehicle";
+        public static final String COLUMN_5 = "password";
     }
 }

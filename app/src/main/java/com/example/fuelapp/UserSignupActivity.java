@@ -9,14 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fuelapp.Database.DBHandler;
 
-public class SignupActivity extends AppCompatActivity {
+public class UserSignupActivity extends AppCompatActivity {
 
-    EditText userName, password, confirmPassword,phoneNo;
-    Spinner role;
+    EditText userName, password, confirmPassword,phoneNo,vehicle;
     Button signup,alreadyHave;
     DBHandler myDB;
 
@@ -26,16 +26,14 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         userName = (EditText) findViewById(R.id.txtUsernameSignUp);
-        role = (Spinner) findViewById(R.id.spinner_Signup);
+        vehicle = (EditText) findViewById(R.id.txtVehicle);
         password = (EditText) findViewById(R.id.txtPasswordSignup);
         confirmPassword = (EditText) findViewById(R.id.txtConfirmPassword);
         signup = (Button) findViewById(R.id.btnSignUp);
         phoneNo = (EditText) findViewById(R.id.txtPhoneNo);
         alreadyHave = (Button) findViewById(R.id.btnAlreadySignup);
 
-        //Retrieve dropdown strings
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.userType, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        role.setAdapter(adapter);
+
 
         myDB = new DBHandler(this);
 
@@ -47,43 +45,53 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
+        TextView stationSignUp = findViewById(R.id.txtNavigateStationOwnerRegistration);
+        stationSignUp.setOnClickListener(v -> {
+
+            Intent intent = new Intent(this, StationOwnerSignUp.class);
+            startActivity(intent);
+        });
+
+
         //sign up on click listner
         signup.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                String rrole = role.getSelectedItem().toString();
                 String user = userName.getText().toString();
                 String phone = phoneNo.getText().toString();
                 String pass = password.getText().toString();
+                String vehi = vehicle.getText().toString();
                 String cPass = confirmPassword.getText().toString();
+                String role = "User";
 
                 //check the fields are empty
-                if(user.equals("") || rrole.equals("") || pass.equals("") || cPass.equals("")){
-                    Toast.makeText(SignupActivity.this, "Fill All the field", Toast.LENGTH_SHORT).show();
+                if(user.equals("") || vehi.equals("") || pass.equals("") || cPass.equals("")){
+                    Toast.makeText(UserSignupActivity.this, "Fill All the field", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     //check the password and confirm password
                     if(pass.equals(cPass)){
                         Boolean userCkeckResult =  myDB.checkusername((phone));
                         if(userCkeckResult == false){
-                           Boolean regResult =  myDB.addInfo(user,phone,rrole,pass);
+                           Boolean regResult =  myDB.addInfo(user,phone,role,vehi,pass);
                            if(regResult == true){
-                                   Toast.makeText(SignupActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
-                                   System.out.println("username:"+user+ "\npassword:"+pass+ "\nrole:"+rrole);
+                                   Toast.makeText(UserSignupActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
+                                   System.out.println("username:"+user+ "\npassword:"+pass+ "\nrole:"+role);
                                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                    startActivity(intent);
                            }else{
-                               Toast.makeText(SignupActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(UserSignupActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
                            }
                         }else{
-                            Toast.makeText(SignupActivity.this, "User already exists", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserSignupActivity.this, "User already exists", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Toast.makeText(SignupActivity.this, "Password not matched!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserSignupActivity.this, "Password not matched!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
+
     }
 }

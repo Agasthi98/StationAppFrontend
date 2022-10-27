@@ -18,14 +18,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
     EditText password, phoneNo;
-    Spinner role;
     Button signIn;
     DBHandler myDB;
 
     //declare static variables
     public static String userNAME;
     public static String phoneNUMBER;
-    public static String userROLE;
+    public static String VTYPE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +54,12 @@ public class LoginActivity extends AppCompatActivity {
                             String username = checkuserpass.get(1).toString();
                             String phoneNo = checkuserpass.get(2).toString();
                             String role = checkuserpass.get(3).toString();
-                            String password = checkuserpass.get(4).toString();
+                            String vehicle = checkuserpass.get(4).toString();
+                            String password = checkuserpass.get(5).toString();
 
                             userNAME = username;
                             phoneNUMBER = phoneNo;
-                            userROLE = role;
+                            VTYPE = vehicle;
 
                             //check the password and phone
                             if(password.equals(pass) && phoneNo.equalsIgnoreCase(phone))
@@ -68,13 +68,12 @@ public class LoginActivity extends AppCompatActivity {
                                     Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                                     startActivity(intent);
                                 }else{
-                                    Toast.makeText(LoginActivity.this, "Login failed..", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), ShedOwnerActivity.class);
+                                    startActivity(intent);
                                 }
                         }else {
-                            Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), ShedOwnerActivity.class);
-                            startActivity(intent);
-
+                            Toast.makeText(LoginActivity.this, "Login failed..", Toast.LENGTH_SHORT).show();
                         }
                     }
         });
