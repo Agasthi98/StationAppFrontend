@@ -5,8 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 //Create Station model
 public class FuelModel {
-
-
     private String id;
 
     private String stationName;

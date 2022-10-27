@@ -12,12 +12,30 @@ public interface StationService {
 
     //Api route
     @FormUrlEncoded
-    @POST("api/station")
-    Call<FuelModel> createStation(@Field("stationName") String stationName,
-                                  @Field("stationPhoneNo") String stationPhoneNo,
-                                  @Field("fuelStatus") String fuelStatus,
-                                  @Field("fuelType") String fuelType,
-                                  @Field("stationLocation") String stationLocation
+    @POST("api/diesel")
+    Call<FuelModel> createDiesel(@Field("liters") String Liters,
+                                  @Field("arrivalTime") String ArrivalTime,
+                                  @Field("endTime") String EndTime,
+                                  @Field("queueLength") String QueueLength,
+                                  @Field("stationNumber") String StationNumber,
+                                  @Field("stationName") String StationName,
+                                  @Field("stationLocation") String StationLocation
+    );
+
+    @FormUrlEncoded
+    @POST("api/petrol")
+    Call<FuelModel> createPetrol(@Field("liters") String Liters,
+                                  @Field("arrivalTime") String ArrivalTime,
+                                  @Field("endTime") String EndTime,
+                                  @Field("queueLength") String QueueLength,
+                                  @Field("stationNumber") String StationNumber,
+                                  @Field("stationName") String StationName,
+                                  @Field("stationLocation") String StationLocation
+    );
+
+    @FormUrlEncoded
+    @POST("api/petrol/display")
+    Call<FuelModel> getPetrol(@Field("StationNumber") String StationNumber
     );
 
 }

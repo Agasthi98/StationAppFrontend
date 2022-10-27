@@ -226,7 +226,19 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/addbutton"
-        android:text="Add Petrol"
+        android:text="Log out"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRemove"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/addbutton"
+        android:text="Remove"
         android:textAllCaps="false"
         android:textColor="@color/white" />
 

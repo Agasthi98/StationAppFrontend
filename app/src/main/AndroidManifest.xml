@@ -25,22 +25,19 @@
             android:name=".StationOwnerSignUp"
             android:exported="false" />
         <activity
-            android:name=".AddStationActivity"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".UserActivity"
             android:exported="false" />
         <activity
-            android:name=".GetStarted"
+            android:name=".OwnerAddPetrol"
             android:exported="false" />
         <activity
             android:name=".UserSignupActivity"
             android:exported="false" />
         <activity
-            android:name=".OwnerAddPetrol"
+            android:name=".GetStarted"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
