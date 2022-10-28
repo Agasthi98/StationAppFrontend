@@ -22,7 +22,7 @@ import retrofit2.Response;
 
 public class ShedOwnerActivity extends AppCompatActivity {
 
-    Button removeFuel,logOut,addPetrol,addDiesel;
+    Button removeFuel,logOut,addPetrol,addDiesel,addTime;
     TextView FstartTime,FendTime,dieselLiter,petrolLiter,dieselQueue,petrolQueue,Flocation,FlocationValue,petrolQueueValue,dieselQueueValue;
     TextView OpenTimeValue,CloseTimeValue,petrolLiterDisplayValue;
 
@@ -47,10 +47,21 @@ public class ShedOwnerActivity extends AppCompatActivity {
         addPetrol = (Button) findViewById(R.id.btnAddPetrol);
         addDiesel = (Button) findViewById(R.id.btnAddDiesel);
         petrolLiterDisplayValue = (TextView) findViewById(R.id.txtPetrolLitersDisplayValue);
-
+        logOut = (Button) findViewById(R.id.btnStationLogOut);
+        addTime = (Button) findViewById(R.id.btnAddOpenTime);
 
         displayPetrol();
         displayDiesel();
+
+
+
+        addTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddTime.class);
+                startActivity(intent);
+            }
+        });
 
         addPetrol.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +133,14 @@ public class ShedOwnerActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<FuelModel> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
+            }
+        });
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             }
         });
     }

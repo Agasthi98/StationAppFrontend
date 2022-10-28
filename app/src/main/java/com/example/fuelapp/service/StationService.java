@@ -43,4 +43,13 @@ public interface StationService {
     Call<FuelModel> getPetrol(@Field("StationNumber") String StationNumber
     );
 
+    @FormUrlEncoded
+    @POST("api/time")
+    Call<FuelModel> createShedAvailableTime(@Field("arrivalTime") String Liters,
+                                 @Field("endTime") String ArrivalTime,
+                                 @Field("stationName") String StationName,
+                                 @Field("stationNumber") String StationNumber,
+                                 @Field("stationLocation") String StationLocation
+    );
+
 }
