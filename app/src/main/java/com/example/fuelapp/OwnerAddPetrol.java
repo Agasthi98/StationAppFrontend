@@ -6,12 +6,12 @@ import static com.example.fuelapp.LoginActivity.userNAME;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fuelapp.domain.FuelModel;
@@ -59,16 +59,19 @@ public class OwnerAddPetrol extends AppCompatActivity {
                 if(pLiters.equals("") || pStartTime.equals("") || pEndTime.equals("") || pQueueLength.equals("")){
                     Toast.makeText(OwnerAddPetrol.this, "Fill All the field", Toast.LENGTH_SHORT).show();
                 }else{
+                    System.out.println("details:===="+StationName+StationNumber+StationLocation);
                     addPetrol(pLiters,pStartTime,pEndTime,pQueueLength,StationName,StationNumber,StationLocation);
+                    Intent intent = new Intent(getApplicationContext(), ShedOwnerActivity.class);
+                    startActivity(intent);
                 }
 
             }
         });
     }
 
-    public void addPetrol(String Liters,String ArrivalTime,String EndTime, String QueueLength, String StationNumber,String StationName,String StationLocation){
+    public void addPetrol(String Liters,String ArrivalTime,String EndTime, String QueueLength, String StationName,String StationNumber,String StationLocation){
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
-        Call<FuelModel> call = stationService.createPetrol(Liters,ArrivalTime,EndTime,QueueLength,StationNumber,StationName,StationLocation);
+        Call<FuelModel> call = stationService.createPetrol(Liters,ArrivalTime,EndTime,QueueLength,StationName,StationNumber,StationLocation);
         call.enqueue(new Callback<FuelModel>() {
             @Override
             public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {

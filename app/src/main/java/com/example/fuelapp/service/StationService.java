@@ -17,9 +17,14 @@ public interface StationService {
                                   @Field("arrivalTime") String ArrivalTime,
                                   @Field("endTime") String EndTime,
                                   @Field("queueLength") String QueueLength,
-                                  @Field("stationNumber") String StationNumber,
                                   @Field("stationName") String StationName,
+                                  @Field("stationNumber") String StationNumber,
                                   @Field("stationLocation") String StationLocation
+    );
+
+    @FormUrlEncoded
+    @POST("api/diesel/display")
+    Call<FuelModel> getDiesel(@Field("StationNumber") String StationNumber
     );
 
     @FormUrlEncoded
@@ -28,8 +33,8 @@ public interface StationService {
                                   @Field("arrivalTime") String ArrivalTime,
                                   @Field("endTime") String EndTime,
                                   @Field("queueLength") String QueueLength,
-                                  @Field("stationNumber") String StationNumber,
                                   @Field("stationName") String StationName,
+                                  @Field("stationNumber") String StationNumber,
                                   @Field("stationLocation") String StationLocation
     );
 
