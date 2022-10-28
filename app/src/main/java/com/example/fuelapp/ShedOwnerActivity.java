@@ -52,6 +52,7 @@ public class ShedOwnerActivity extends AppCompatActivity {
 
         displayPetrol();
         displayDiesel();
+        displayShedTime();
 
 
 
@@ -127,6 +128,39 @@ public class ShedOwnerActivity extends AppCompatActivity {
                     FuelModel Fmodel = response.body();
                     dDisplayValue.setText(Fmodel.getLiters());
                     dQueueValue.setText(Fmodel.getQueueLength());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FuelModel> call, Throwable t) {
+                Log.e("ERROR: ", t.getMessage());
+            }
+        });
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    public void displayShedTime(){
+        TextView shedOpenTime = findViewById(R.id.txtOpenTimeValue);
+        TextView shedCloseTime = findViewById(R.id.txtCloseTimeValue);
+
+        System.out.println(phoneNUMBER);
+        StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
+        Call<FuelModel> call = stationService.getShedOpenTime(phoneNUMBER);
+        call.enqueue(new Callback<FuelModel>() {
+            @Override
+            public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {
+                if(response.isSuccessful()){
+                    FuelModel Fmodel = response.body();
+                    shedOpenTime.setText(Fmodel.getArrivalTime());
+                    shedCloseTime.setText(Fmodel.getEndTime());
                 }
             }
 

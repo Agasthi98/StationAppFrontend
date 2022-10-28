@@ -52,4 +52,9 @@ public interface StationService {
                                  @Field("stationLocation") String StationLocation
     );
 
+    @FormUrlEncoded
+    @POST("api/time/display")
+    Call<FuelModel> getShedOpenTime(@Field("StationNumber") String StationNumber
+    );
+
 }
