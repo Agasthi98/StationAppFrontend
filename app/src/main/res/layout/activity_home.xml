@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,67 +8,49 @@
     android:orientation="vertical"
     tools:context=".Home">
 
-  <Button
-      android:id="@+id/logoutFromHome"
-      android:layout_width="60dp"
-      android:layout_height="60dp"
-      android:layout_alignParentStart="true"
-      android:layout_alignParentTop="true"
-      android:layout_alignParentEnd="true"
-      android:layout_alignParentBottom="true"
-      android:layout_marginStart="268dp"
-      android:layout_marginTop="18dp"
-      android:layout_marginEnd="40dp"
-      android:layout_marginBottom="652dp"
-      android:text="Log Out"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.897"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.04"
-      app:srcCompat="@drawable/round_background_primary"
-      tools:ignore="MissingConstraints" />
-  
-  <TextView
-      android:id="@+id/divider3"
-      android:layout_width="370dp"
-      android:layout_height="2dp"
-      android:layout_alignParentStart="true"
-      android:layout_alignParentEnd="true"
-      android:layout_alignParentBottom="true"
-      android:layout_marginStart="17dp"
-      android:layout_marginEnd="23dp"
-      android:layout_marginBottom="580dp"
-      android:background="#FF5722"></TextView>
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
 
-  <androidx.appcompat.widget.SearchView
-      android:id="@+id/ShedSearch"
-      android:layout_width="wrap_content"
-      android:layout_height="51dp"
-      android:layout_alignParentStart="true"
-      android:layout_alignParentTop="true"
-      android:layout_alignParentEnd="true"
-      android:layout_alignParentBottom="true"
-      android:layout_marginStart="17dp"
-      android:layout_marginTop="93dp"
-      android:layout_marginEnd="23dp"
-      android:layout_marginBottom="587dp"
-      android:background="#FFFF"
-      app:queryHint="Search here..." />
+    <EditText
+        android:id="@+id/textLocation"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="10dp"
+        android:drawablePadding="8dp"
+        android:hint="Search Loaction Here...."
+        android:paddingLeft="20dp"
+        android:textColorHighlight="@color/black"
+        android:textSize="17dp" />
 
-  <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/ShedRecyclerView"
+    <Button
+        android:id="@+id/btnSearchLocation"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp"
+        android:text="Search"
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+  </RelativeLayout>
+
+  <ListView
+      android:id="@+id/ShedListView"
       android:layout_width="wrap_content"
       android:layout_height="538dp"
       android:layout_alignParentStart="true"
       android:layout_alignParentEnd="true"
       android:layout_alignParentBottom="true"
       android:layout_marginStart="17dp"
-      android:layout_marginTop="110dp"
+      android:layout_marginTop="10dp"
       android:layout_marginEnd="23dp"
       android:layout_marginBottom="19dp"
-      android:textColor="#FFFFFF"></androidx.recyclerview.widget.RecyclerView>
+      android:textColor="#FFFFFF"></ListView>
 
-  </RelativeLayout>
+  </LinearLayout>
 

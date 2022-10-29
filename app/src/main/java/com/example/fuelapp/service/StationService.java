@@ -3,10 +3,15 @@ package com.example.fuelapp.service;
 
 import com.example.fuelapp.domain.FuelModel;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+
 
 public interface StationService {
 
@@ -56,5 +61,19 @@ public interface StationService {
     @POST("api/time/display")
     Call<FuelModel> getShedOpenTime(@Field("StationNumber") String StationNumber
     );
+
+    @FormUrlEncoded
+    @POST("api/petrol/remove")
+    Call<FuelModel> deletePetrol(@Field("StationNumber") String StationNumber
+    );
+
+    @FormUrlEncoded
+    @POST("api/diesel/remove")
+    Call<FuelModel> deleteDiesel(@Field("StationNumber") String StationNumber
+    );
+
+
+    @GET("api/petrol/search/{location}")
+    Call<List<FuelModel>> searchLocation(@Path("location") String location);
 
 }

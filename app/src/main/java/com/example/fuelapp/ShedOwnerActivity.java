@@ -22,7 +22,7 @@ import retrofit2.Response;
 
 public class ShedOwnerActivity extends AppCompatActivity {
 
-    Button removeFuel,logOut,addPetrol,addDiesel,addTime;
+    Button removepetrol,removeDiesel,logOut,addPetrol,addDiesel,addTime;
     TextView FstartTime,FendTime,dieselLiter,petrolLiter,dieselQueue,petrolQueue,Flocation,FlocationValue,petrolQueueValue,dieselQueueValue;
     TextView OpenTimeValue,CloseTimeValue,petrolLiterDisplayValue;
 
@@ -42,7 +42,8 @@ public class ShedOwnerActivity extends AppCompatActivity {
         petrolQueueValue = (TextView) findViewById(R.id.txtPetrolQueueDisplayValue);
         OpenTimeValue = (TextView) findViewById(R.id.txtOpenTimeValue);
         CloseTimeValue = (TextView) findViewById(R.id.txtCloseTimeValue);
-        removeFuel = (Button) findViewById(R.id.btnRemove);
+        removepetrol = (Button) findViewById(R.id.btnRemovePetrol);
+        removeDiesel = (Button) findViewById(R.id.btnRemoveDiesel);
         logOut = (Button) findViewById(R.id.btnStationLogOut);
         addPetrol = (Button) findViewById(R.id.btnAddPetrol);
         addDiesel = (Button) findViewById(R.id.btnAddDiesel);
@@ -55,6 +56,22 @@ public class ShedOwnerActivity extends AppCompatActivity {
         displayShedTime();
 
 
+
+        removepetrol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                removePetrol();
+                System.out.println("Petrol deleted");
+            }
+        });
+
+        removeDiesel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                removeDiesel();
+                System.out.println("Diesel deleted");
+            }
+        });
 
         addTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,6 +178,62 @@ public class ShedOwnerActivity extends AppCompatActivity {
                     FuelModel Fmodel = response.body();
                     shedOpenTime.setText(Fmodel.getArrivalTime());
                     shedCloseTime.setText(Fmodel.getEndTime());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FuelModel> call, Throwable t) {
+                Log.e("ERROR: ", t.getMessage());
+            }
+        });
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void removePetrol(){
+        System.out.println(phoneNUMBER);
+        StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
+        Call<FuelModel> call = stationService.deletePetrol(phoneNUMBER);
+        call.enqueue(new Callback<FuelModel>() {
+            @Override
+            public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(ShedOwnerActivity.this, "Petrol Delete successfully!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FuelModel> call, Throwable t) {
+                Log.e("ERROR: ", t.getMessage());
+            }
+        });
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+
+    public void removeDiesel(){
+        System.out.println(phoneNUMBER);
+        StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
+        Call<FuelModel> call = stationService.deleteDiesel(phoneNUMBER);
+        call.enqueue(new Callback<FuelModel>() {
+            @Override
+            public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(ShedOwnerActivity.this, "Diesel Delete successfully!", Toast.LENGTH_SHORT).show();
                 }
             }
 

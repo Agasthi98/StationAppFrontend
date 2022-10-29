@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Shed-list -->
+
+
+    <TextView
+        android:id="@+id/txtShedNAme1"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:text="Location"
+        android:textSize="15sp"></TextView>
+
+        <TextView
+            android:id="@+id/txtLocationUser"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="60dp"
+            android:text="Location"
+            android:textSize="15sp"></TextView>
+
+
+
+</LinearLayout>

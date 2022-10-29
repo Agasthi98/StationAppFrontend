@@ -16,6 +16,9 @@
         android:theme="@style/Theme.FuelApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ShedView"
+            android:exported="false" />
+        <activity
             android:name=".AddTime"
             android:exported="false" />
         <activity

@@ -6,13 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.fuelapp.domain.ShedViewModal;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
     //Database creation
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "userInfo.db";
+
+    String SHED = "shed";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -96,6 +101,35 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return arrayList;
     }
+
+
+//    public List<ShedViewModal> getAll(){
+//
+//        //User level
+//        String type = "1";
+//
+//        List<ShedViewModal> data = new ArrayList();
+//        SQLiteDatabase db = getReadableDatabase();
+//
+//        //Execute the query
+//        Cursor myCursor = db.rawQuery("SELECT * FROM userInfo where vehicle=" + type + "", null);
+//
+//        //Assign values to Register User Model
+//        if(myCursor.moveToFirst()){
+//            do {
+//                ShedViewModal shedViewModal = new ShedViewModal();
+//                shedViewModal.setId(myCursor.getInt(0));
+//                shedViewModal.setUserName(myCursor.getString(1));
+//                shedViewModal.setPhoneNo(myCursor.getString(2));
+//                shedViewModal.setRole(myCursor.getString(3));
+//                shedViewModal.setVehicle(myCursor.getString(4) + " " + SHED);
+//                data.add(shedViewModal);
+//
+//            }while (myCursor.moveToNext());
+//        }
+//        return data;
+//    }
+
     //Shed owner login
 //    public ArrayList getInfo(String phoneNo, String password){
 //        SQLiteDatabase db = this.getReadableDatabase();
