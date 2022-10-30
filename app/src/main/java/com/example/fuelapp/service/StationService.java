@@ -2,6 +2,7 @@ package com.example.fuelapp.service;
 
 
 import com.example.fuelapp.domain.FuelModel;
+import com.example.fuelapp.domain.QueueModel;
 
 import java.util.List;
 
@@ -75,5 +76,17 @@ public interface StationService {
 
     @GET("api/petrol/search/{location}")
     Call<List<FuelModel>> searchLocation(@Path("location") String location);
+
+    @FormUrlEncoded
+    @POST("api/queue")
+    Call<QueueModel> addToQueue(@Field("type") String type,
+                                @Field("queue") String queue,
+                                @Field("shed") String shed
+    );
+
+    @FormUrlEncoded
+    @POST("api/queue/display")
+    Call<QueueModel> getQueue(@Field("shed") String shed
+    );
 
 }
