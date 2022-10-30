@@ -25,6 +25,8 @@ import java.util.List;
 public class ShedAdapter extends ArrayAdapter<FuelModel> {
     private Context context;
 
+    public static String SHED_PHONE;
+
     public ShedAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List<FuelModel> objects) {
         super(context, resource, textViewResourceId, objects);
     }
@@ -54,7 +56,7 @@ public class ShedAdapter extends ArrayAdapter<FuelModel> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ShedView.class);
-                intent.putExtra("shed_phone", String.valueOf(fuels.get(position).getStationNumber()));
+                SHED_PHONE =  String.valueOf(fuels.get(position).getStationNumber());
                 context.startActivity(intent);
             }
         });

@@ -24,24 +24,13 @@
         android:layout_height="wrap_content"
         android:text="Shed Name:"
         android:layout_marginStart="20dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginEnd="20dp"
         android:textColor="@color/black"
         android:layout_marginBottom="40dp"
         />
 
-    <TextView
-        android:id="@+id/txtShedNameValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_marginStart="200dp"
-        android:textSize="30sp"
-        android:layout_marginTop="-78dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginBottom="40dp"
-        />
+
 
     <TextView
         android:id="@+id/txtShedPhoneNo"
@@ -49,51 +38,29 @@
         android:layout_height="wrap_content"
         android:text="Shed No:"
         android:layout_marginStart="20dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:layout_marginEnd="20dp"
+        android:textSize="25sp"
         android:textColor="@color/black"
         android:layout_marginBottom="40dp"
         />
 
-    <TextView
-        android:id="@+id/txtShedPhoneNoValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="-78dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginBottom="40dp"
-        />
+
 
     <TextView
-        android:id="@+id/txtShedStatus"
+        android:id="@+id/txtShedQueue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fuel Status:"
+        android:text="Queue:"
+        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:textSize="25sp"
         android:textColor="@color/black"
         android:layout_marginBottom="40dp"
         />
 
-    <TextView
-        android:id="@+id/txtShedStatusValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=":"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="-78dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginBottom="40dp"
-        />
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSignUp"
+        android:id="@+id/btnAddQueue"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
@@ -101,18 +68,19 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/round_background_primary"
-        android:text="Sign Up"
+        android:text="Add Queue"
         android:textAllCaps="false"
         android:textColor="@color/white" />
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAlreadySignup"
+        android:id="@+id/btnFuelComplete"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/alreadyhave"
-        android:text="I have an account"
+        android:text="Complete"
         android:textAllCaps="false"
         android:textColor="@color/white" />
 
