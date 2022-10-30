@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(password.equals(pass) && phoneNo.equalsIgnoreCase(phone))
                                 if(role.equalsIgnoreCase("User")){
                                     Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                                    Intent intent = new Intent(getApplicationContext(), PreHome.class);
                                     startActivity(intent);
                                 }else{
                                     Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();

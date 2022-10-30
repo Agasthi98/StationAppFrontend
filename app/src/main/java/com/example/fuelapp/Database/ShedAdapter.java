@@ -1,6 +1,7 @@
 package com.example.fuelapp.Database;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fuelapp.R;
+import com.example.fuelapp.ShedView;
 import com.example.fuelapp.domain.FuelModel;
 import com.example.fuelapp.domain.ShedListModel;
 import com.example.fuelapp.domain.ShedViewModal;
@@ -47,6 +49,15 @@ public class ShedAdapter extends ArrayAdapter<FuelModel> {
         System.out.println(fuels.get(position).getStationName());
         txtshedNameUser.setText((String.format("Shed Name: %s", fuels.get(position).getStationName())));
         txtLocationUser.setText(String.format("Shed Location: %s", fuels.get(position).getStationLocation()));
+
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ShedView.class);
+                intent.putExtra("shed_phone", String.valueOf(fuels.get(position).getStationNumber()));
+                context.startActivity(intent);
+            }
+        });
 
         return rowView;
     }
