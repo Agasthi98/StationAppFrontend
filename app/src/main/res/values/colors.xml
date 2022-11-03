@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="dark_blue">#0e86d4</color>
     <color name="dark_red">#FF2511</color>
-    <color name="wine_red">#800020</color>
+    <color name="wine_red">#FF0000</color>
 
 </resources>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".ShedOwnerActivity">
 
     <TextView
@@ -16,7 +17,7 @@
         android:text="Station dashboard"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
 
     <TextView
@@ -28,7 +29,7 @@
         android:text="Open Time: "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
     <TextView
         android:id="@+id/txtOpenTimeValue"
         android:layout_width="wrap_content"
@@ -38,7 +39,7 @@
         android:text=" "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtCloseTime"
@@ -49,7 +50,7 @@
         android:text="Close Time "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAddOpenTime"
@@ -72,7 +73,7 @@
         android:text=" "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtDieselDisplay"
@@ -83,7 +84,7 @@
         android:text="Diesel "
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtLitersDisplay"
@@ -94,7 +95,7 @@
         android:text="Liters:"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtDieselLiterValue"
@@ -103,7 +104,7 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="-28dp"
         android:text=":"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -116,7 +117,7 @@
         android:text="Queue:"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtQueueDisplayValue"
@@ -127,7 +128,7 @@
         android:text=":"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAddDiesel"
@@ -150,7 +151,7 @@
         android:text="Petrol "
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtPetrolLitersDisplay"
@@ -161,7 +162,7 @@
         android:text="Liters:"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtPetrolLitersDisplayValue"
@@ -172,7 +173,7 @@
         android:text=":"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtPetrolQueueDisplay"
@@ -183,7 +184,7 @@
         android:text="Queue:"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtPetrolQueueDisplayValue"
@@ -194,7 +195,7 @@
         android:text=":"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAddPetrol"
@@ -217,7 +218,7 @@
         android:text="Location "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/txtShedOwnerLocationvalue"
@@ -228,7 +229,7 @@
         android:text=": "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnStationLogOut"
@@ -258,7 +259,7 @@
         android:id="@+id/btnRemoveDiesel"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_marginStart="240dp"
+        android:layout_marginStart="260dp"
         android:layout_marginTop="-40dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/addbutton"
