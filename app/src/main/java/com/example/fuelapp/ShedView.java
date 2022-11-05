@@ -5,6 +5,7 @@ import static com.example.fuelapp.LoginActivity.phoneNUMBER;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +25,7 @@ import retrofit2.Response;
 public class ShedView extends AppCompatActivity {
     private static final String TAG = "ShedPatrol";
     TextView shedName,shedPhoneNo,fuelQueue,shedQueueSize;
-    Button addQueue;
+    Button addQueue,fuelingComplete;
 
 
     @Override
@@ -37,11 +38,21 @@ public class ShedView extends AppCompatActivity {
         fuelQueue = (TextView) findViewById(R.id.txtShedQueue);
         addQueue = (Button) findViewById(R.id.btnAddQueue);
         shedQueueSize = (TextView) findViewById(R.id.txtShedQueueSize);
+        fuelingComplete = (Button) findViewById(R.id.btnFuelComplete);
+
 
         System.out.println(SHED_PHONE);
         displayQueue();
         displayPetrol();
 
+
+        fuelingComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         addQueue.setOnClickListener(new View.OnClickListener() {
             @Override
