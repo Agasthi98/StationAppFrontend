@@ -24,7 +24,7 @@ import retrofit2.Response;
 
 public class ShedView extends AppCompatActivity {
     private static final String TAG = "ShedPatrol";
-    TextView shedName,shedPhoneNo,fuelQueue,shedQueueSize;
+    TextView shedName,shedPhoneNo,fuelQueue,shedQueueSize,openTime,closeTime;
     Button addQueue,fuelingComplete;
 
 
@@ -39,11 +39,15 @@ public class ShedView extends AppCompatActivity {
         addQueue = (Button) findViewById(R.id.btnAddQueue);
         shedQueueSize = (TextView) findViewById(R.id.txtShedQueueSize);
         fuelingComplete = (Button) findViewById(R.id.btnFuelComplete);
+        openTime = (TextView) findViewById(R.id.txtShedViewOpenTimeValue);
+        closeTime = (TextView) findViewById(R.id.txtShedViewCloseTimeValue);
 
 
         System.out.println(SHED_PHONE);
+        displayShedTime();
         displayQueue();
         displayPetrol();
+
 
 
         fuelingComplete.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +157,30 @@ public class ShedView extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<QueueModel> call, Throwable t) {
+                Log.e("ERROR: ", t.getMessage());
+            }
+        });
+    }
+
+    public void displayShedTime() {
+        TextView shedOpenTime = findViewById(R.id.txtShedViewOpenTimeValue);
+        TextView shedCloseTime = findViewById(R.id.txtShedViewCloseTimeValue);
+
+        System.out.println(SHED_PHONE);
+        StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
+        Call<FuelModel> call = stationService.getShedOpenTime(SHED_PHONE);
+        call.enqueue(new Callback<FuelModel>() {
+            @Override
+            public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {
+                if (response.isSuccessful()) {
+                    FuelModel Fmodel = response.body();
+                    shedOpenTime.setText(Fmodel.getArrivalTime());
+                    shedCloseTime.setText(Fmodel.getEndTime());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FuelModel> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });

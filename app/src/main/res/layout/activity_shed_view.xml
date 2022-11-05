@@ -12,17 +12,68 @@
         android:id="@+id/fuelImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
         app:srcCompat="@drawable/gas" />
 
     <TextView
+        android:id="@+id/txtShedViewOpenTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Time:"
+        android:layout_marginTop="-95dp"
+        android:layout_marginStart="105dp"
+        android:textSize="25dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="40dp"
+        />
+    <TextView
+        android:id="@+id/txtShedViewOpenTimeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"
+        android:layout_marginTop="-74dp"
+        android:layout_marginStart="235dp"
+        android:textSize="25dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="40dp"
+        />
+
+    <TextView
+        android:id="@+id/txtShedViewCloseTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close Time:"
+        android:layout_marginTop="-35dp"
+        android:layout_marginStart="105dp"
+        android:textSize="25dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="40dp"
+        />
+    <TextView
+        android:id="@+id/txtShedViewCloseTimeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"
+        android:layout_marginTop="-74dp"
+        android:layout_marginStart="240dp"
+        android:textSize="25dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="40dp"
+        />
+
+    <TextView
         android:id="@+id/txtShedName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Shed Name:"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:textSize="25dp"
         android:layout_marginEnd="20dp"
