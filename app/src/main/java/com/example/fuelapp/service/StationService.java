@@ -89,4 +89,9 @@ public interface StationService {
     Call<QueueModel> getQueue(@Field("shed") String shed
     );
 
+    @FormUrlEncoded
+    @POST("api/time/remove")
+    Call<FuelModel> deleteTime(@Field("StationNumber") String StationNumber
+    );
+
 }
