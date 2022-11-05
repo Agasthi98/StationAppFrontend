@@ -136,7 +136,7 @@ public class ShedView extends AppCompatActivity {
             @Override
             public void onResponse(Call<QueueModel> call, Response<QueueModel> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(ShedView.this, "Fuel Added successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ShedView.this, "Queue Added successfully!", Toast.LENGTH_SHORT).show();
                 }
             }
 

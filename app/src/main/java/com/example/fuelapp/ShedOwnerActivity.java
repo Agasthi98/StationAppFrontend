@@ -104,8 +104,6 @@ public class ShedOwnerActivity extends AppCompatActivity {
         TextView pQueue =  findViewById(R.id.txtPetrolQueueDisplayValue);
         TextView SLocation = findViewById(R.id.txtShedOwnerLocationvalue);
         TextView pdisplayValue =  findViewById(R.id.txtPetrolLitersDisplayValue);
-        TextView dDisplayValue = findViewById(R.id.txtDieselLiterValue);
-        TextView dQueueValue = findViewById(R.id.txtQueueDisplayValue);
 
         System.out.println(phoneNUMBER);
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
@@ -115,11 +113,16 @@ public class ShedOwnerActivity extends AppCompatActivity {
             public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {
                 if(response.isSuccessful()){
                     FuelModel Fmodel = response.body();
-                    pQueue.setText(Fmodel.getQueueLength());
-                    SLocation.setText(Fmodel.getStationLocation());
-                    pdisplayValue.setText(Fmodel.getLiters());
-                    dDisplayValue.setText(Fmodel.getLiters());
-                    dQueueValue.setText(Fmodel.getQueueLength());
+                    if(Fmodel.getLiters() == null){
+                        System.out.println("unavailable");
+                        pdisplayValue.setText("Unavailable");
+                        pQueue.setText("Unavailable");
+                    }else{
+                        pQueue.setText(Fmodel.getQueueLength());
+                        SLocation.setText(Fmodel.getStationLocation());
+                        pdisplayValue.setText(Fmodel.getLiters());
+                    }
+
                 }
             }
 
@@ -134,25 +137,33 @@ public class ShedOwnerActivity extends AppCompatActivity {
     public void displayDiesel(){
         TextView dDisplayValue = findViewById(R.id.txtDieselLiterValue);
         TextView dQueueValue = findViewById(R.id.txtQueueDisplayValue);
+        TextView SLocation = findViewById(R.id.txtShedOwnerLocationvalue);
 
         System.out.println(phoneNUMBER);
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
         Call<FuelModel> call = stationService.getDiesel(phoneNUMBER);
-        call.enqueue(new Callback<FuelModel>() {
-            @Override
-            public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {
-                if(response.isSuccessful()){
-                    FuelModel Fmodel = response.body();
-                    dDisplayValue.setText(Fmodel.getLiters());
-                    dQueueValue.setText(Fmodel.getQueueLength());
-                }
-            }
+           call.enqueue(new Callback<FuelModel>() {
+               @Override
+               public void onResponse(Call<FuelModel> call, Response<FuelModel> response) {
+                   if(response.isSuccessful()){
+                           FuelModel Fmodel = response.body();
+                           if(Fmodel.getLiters() == null){
+                               System.out.println("unavailable");
+                               dDisplayValue.setText("Unavailable");
+                               dQueueValue.setText("Unavailable");
+                           }else{
+                               dDisplayValue.setText(Fmodel.getLiters());
+                               dQueueValue.setText(Fmodel.getQueueLength());
+                               SLocation.setText(Fmodel.getStationLocation());
+                           }
+                   }
+               }
 
-            @Override
-            public void onFailure(Call<FuelModel> call, Throwable t) {
-                Log.e("ERROR: ", t.getMessage());
-            }
-        });
+               @Override
+               public void onFailure(Call<FuelModel> call, Throwable t) {
+                   Log.e("ERROR: ", t.getMessage());
+               }
+           });
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
