@@ -1,9 +1,9 @@
 # StationAppFrontend
 
-<li>**Android Application**</li>
-<li>**Java based**</li>
-**REST API**
-**App Contains**
+<li>Android Application</li>
+<li>Java based</li>
+<li>REST API</li>
+<li>App Contains</li>
 
   - Add Fuel
   - Get Fuel
