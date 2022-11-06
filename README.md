@@ -1,6 +1,9 @@
 # StationAppFrontend
 
-**The App Contains**
+**Android Application**
+**Java based**
+**REST API**
+**App Contains**
 
   - Add Fuel
   - Get Fuel
