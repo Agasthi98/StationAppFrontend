@@ -1,5 +1,8 @@
 package com.example.fuelapp.domain;
 
+/*
+create queue model
+ */
 public class QueueModel {
     private String phone;
     private String queue;

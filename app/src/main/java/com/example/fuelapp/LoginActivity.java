@@ -21,7 +21,9 @@ public class LoginActivity extends AppCompatActivity {
     Button signIn;
     DBHandler myDB;
 
-    //declare static variables
+    /*
+    Declare static variables
+     */
     public static String userNAME;
     public static String phoneNUMBER;
     public static String VTYPE;
@@ -38,7 +40,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        //SignIn on click
+        /*
+        SignIn on click
+         */
         signIn.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -46,7 +50,9 @@ public class LoginActivity extends AppCompatActivity {
                 String phone = phoneNo.getText().toString();
                 String pass = password.getText().toString();
 
-                    //array list for get registred userdetails
+                    /*
+                    Array list for get registered userDetails
+                     */
                     ArrayList checkuserpass = myDB.getUserInfo(phone,pass);
                         if(!checkuserpass.isEmpty()){
 
@@ -57,11 +63,16 @@ public class LoginActivity extends AppCompatActivity {
                             String vehicle = checkuserpass.get(4).toString();
                             String password = checkuserpass.get(5).toString();
 
+                            /*
+                            Get static variables values
+                             */
                             userNAME = username;
                             phoneNUMBER = phoneNo;
                             VTYPE = vehicle;
 
-                            //check the password and phone
+                            /*
+                            check the password and phone
+                             */
                             if(password.equals(pass) && phoneNo.equalsIgnoreCase(phone))
                                 if(role.equalsIgnoreCase("User")){
                                     Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_SHORT).show();

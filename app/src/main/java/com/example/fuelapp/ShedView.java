@@ -44,12 +44,14 @@ public class ShedView extends AppCompatActivity {
 
 
         System.out.println(SHED_PHONE);
-        displayShedTime();
-        displayQueue();
-        displayPetrol();
+        displayShedTime();//display shed time
+        displayQueue(); //display queue count
+        displayPetrol(); //display fuel details
 
 
-
+        /*
+        fuel complete, user can logout
+         */
         fuelingComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +60,9 @@ public class ShedView extends AppCompatActivity {
             }
         });
 
+        /*
+        add queue method
+         */
         addQueue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +73,9 @@ public class ShedView extends AppCompatActivity {
         });
     }
 
+    /*
+    display queue method
+     */
     public void displayQueue(){
         StationService methods1 = RetrofitClient.getRetrofitInstance().create(StationService.class);
         Call<QueueModel> call1= methods1.getQueue(SHED_PHONE);
@@ -117,6 +125,9 @@ public class ShedView extends AppCompatActivity {
         });
     }
 
+    /*
+    display fuel details method
+     */
     public void displayPetrol(){
 
         TextView pQueue =  findViewById(R.id.txtShedName);
@@ -144,6 +155,9 @@ public class ShedView extends AppCompatActivity {
         });
     }
 
+    /*
+    add queue count method
+     */
     public void addQueue(String shed){
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
         Call<QueueModel> call = stationService.addToQueue("Petrol",shedQueueSize.getText().toString(),shed);
@@ -162,6 +176,9 @@ public class ShedView extends AppCompatActivity {
         });
     }
 
+    /*
+    display shed open and end time method
+     */
     public void displayShedTime() {
         TextView shedOpenTime = findViewById(R.id.txtShedViewOpenTimeValue);
         TextView shedCloseTime = findViewById(R.id.txtShedViewCloseTimeValue);

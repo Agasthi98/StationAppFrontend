@@ -37,6 +37,9 @@ public class ShedAdapter extends ArrayAdapter<FuelModel> {
         this.fuels = objects;
     }
 
+    /*
+    fuel model list view
+     */
     private List<FuelModel> fuels;
 
     @NonNull

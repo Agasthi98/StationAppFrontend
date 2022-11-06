@@ -18,7 +18,9 @@ public class GetStarted extends AppCompatActivity {
 
          getStart = (Button) findViewById(R.id.btnGetStarted);
 
-         //get started button on click
+         /*
+         get started button on click
+          */
          getStart.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {

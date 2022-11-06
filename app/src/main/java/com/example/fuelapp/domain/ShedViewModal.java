@@ -1,7 +1,9 @@
 package com.example.fuelapp.domain;
 
-import com.example.fuelapp.Database.UserInfo;
 
+/*
+shed view model
+ */
 public class ShedViewModal {
         String userName;
         String phoneNo;

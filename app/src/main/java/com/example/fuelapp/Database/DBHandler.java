@@ -35,7 +35,9 @@ public class DBHandler extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    //Database schema
+    /*
+    Database schema
+     */
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + UserInfo.Users.TABLE_NAME + " (" +
                     UserInfo.Users._ID + " INTEGER PRIMARY KEY," +
@@ -49,7 +51,9 @@ public class DBHandler extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + UserInfo.Users.TABLE_NAME;
 
 
-    //User registration
+    /*
+    User registration
+     */
     public Boolean addInfo(String userName,String phoneNo, String role,String vehicle, String password){
         // Gets the data repository in write mode
         SQLiteDatabase db = getWritableDatabase();
@@ -72,7 +76,9 @@ public class DBHandler extends SQLiteOpenHelper {
             return true;
     }
 
-    //Check existing user
+    /*
+    Check existing user
+     */
     public Boolean checkusername(String phoneNo){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from userInfo where phoneNo = ?", new String[] {phoneNo});
@@ -82,7 +88,9 @@ public class DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
-    //Normal user login
+    /*
+    Normal user login
+     */
     public ArrayList getUserInfo(String phoneNo, String password){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from userInfo where phoneNo = ? and password = ?", new String[] {phoneNo,password});

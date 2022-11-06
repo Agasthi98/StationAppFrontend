@@ -35,7 +35,9 @@ public class OwnerAddPetrol extends AppCompatActivity {
         setContentView(R.layout.activity_owner_add_petrol);
 
 
-
+        /*
+        combine java class and its layouts components
+         */
         petrolLiters = (EditText) findViewById(R.id.txtAddPetrolLiters);
         petrolStartTime = (EditText) findViewById(R.id.txtPetrolStartTime);
         petrolEndTime = (EditText) findViewById(R.id.txtPetrolEndTime);
@@ -43,7 +45,9 @@ public class OwnerAddPetrol extends AppCompatActivity {
         addPetrol = (Button) findViewById(R.id.btnAddPetrol);
 
 
-
+        /*
+        add petrol listner
+         */
         addPetrol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,13 +56,22 @@ public class OwnerAddPetrol extends AppCompatActivity {
                 String pEndTime = petrolEndTime.getText().toString();
                 String pQueueLength = petrolQueueLength.getText().toString();
 
+                /*
+                get static variables values
+                 */
                 String StationName = userNAME;
                 String StationNumber = phoneNUMBER;
                 String StationLocation = VTYPE;
 
+                /*
+                check the input fields empty or not
+                 */
                 if(pLiters.equals("") || pStartTime.equals("") || pEndTime.equals("") || pQueueLength.equals("")){
                     Toast.makeText(OwnerAddPetrol.this, "Fill All the field", Toast.LENGTH_SHORT).show();
                 }else{
+                    /*
+                    call the add petrol method
+                     */
                     System.out.println("details:===="+StationName+StationNumber+StationLocation);
                     addPetrol(pLiters,pStartTime,pEndTime,pQueueLength,StationName,StationNumber,StationLocation);
                     Intent intent = new Intent(getApplicationContext(), ShedOwnerActivity.class);
@@ -69,6 +82,9 @@ public class OwnerAddPetrol extends AppCompatActivity {
         });
     }
 
+    /*
+    add petrol method
+     */
     public void addPetrol(String Liters,String ArrivalTime,String EndTime, String QueueLength, String StationName,String StationNumber,String StationLocation){
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
         Call<FuelModel> call = stationService.createPetrol(Liters,ArrivalTime,EndTime,QueueLength,StationName,StationNumber,StationLocation);

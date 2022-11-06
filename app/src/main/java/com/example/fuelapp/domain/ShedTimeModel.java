@@ -1,5 +1,8 @@
 package com.example.fuelapp.domain;
 
+/*
+shed time model
+ */
 public class ShedTimeModel {
 
     private String arrivalTime;

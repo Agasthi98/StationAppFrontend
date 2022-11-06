@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,9 +32,14 @@ public class UserSignupActivity extends AppCompatActivity {
         alreadyHave = (Button) findViewById(R.id.btnAlreadySignup);
 
 
-
+        /*
+        call local database
+         */
         myDB = new DBHandler(this);
 
+        /*
+        already have button on click listner
+         */
         alreadyHave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +48,9 @@ public class UserSignupActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        textview for navigate shed owner sign up
+         */
         TextView stationSignUp = findViewById(R.id.txtNavigateStationOwnerRegistration);
         stationSignUp.setOnClickListener(v -> {
 
@@ -53,7 +59,9 @@ public class UserSignupActivity extends AppCompatActivity {
         });
 
 
-        //sign up on click listner
+        /*
+        sign up on click listner
+         */
         signup.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -65,12 +73,16 @@ public class UserSignupActivity extends AppCompatActivity {
                 String cPass = confirmPassword.getText().toString();
                 String role = "User";
 
-                //check the fields are empty
+                /*
+                check the fields are empty
+                 */
                 if(user.equals("") || vehi.equals("") || pass.equals("") || cPass.equals("")){
                     Toast.makeText(UserSignupActivity.this, "Fill All the field", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    //check the password and confirm password
+                    /*
+                    check the password and confirm password
+                     */
                     if(pass.equals(cPass)){
                         Boolean userCkeckResult =  myDB.checkusername((phone));
                         if(userCkeckResult == false){

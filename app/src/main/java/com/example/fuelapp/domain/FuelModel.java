@@ -1,9 +1,8 @@
 package com.example.fuelapp.domain;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-//Create Station model
+/*
+Create Station model
+ */
 public class FuelModel {
     private String id;
 

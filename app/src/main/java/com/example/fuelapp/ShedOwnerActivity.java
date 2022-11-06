@@ -31,6 +31,9 @@ public class ShedOwnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shed_owner);
 
+        /*
+        combine java class and related layout components
+         */
         FstartTime = (TextView) findViewById(R.id.txtOpenTime);
         FendTime = (TextView) findViewById(R.id.txtCloseTime);
         dieselLiter = (TextView) findViewById(R.id.txtLitersDisplay);
@@ -52,11 +55,35 @@ public class ShedOwnerActivity extends AppCompatActivity {
         addTime = (Button) findViewById(R.id.btnAddOpenTime);
         removeTime = (Button) findViewById(R.id.btnRemoveOpenTime);
 
+        /*
+        display petrol
+         */
         displayPetrol();
+
+        /*
+        display diesel
+         */
         displayDiesel();
+
+        /*
+        display shed time
+         */
         displayShedTime();
 
+            /*
+        shed owner log out method
+         */
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        /*
+        remove time on click listenr
+         */
         removeTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +92,9 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        remove petrol on click listner
+         */
         removepetrol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +103,9 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        remove diesel o click listner
+         */
         removeDiesel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +114,9 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        add time on click listenr
+         */
         addTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +125,9 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        add petrol on click listenr
+         */
         addPetrol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,6 +136,9 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        add diesel on click listenr
+         */
         addDiesel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,6 +149,9 @@ public class ShedOwnerActivity extends AppCompatActivity {
 
     }
 
+    /*
+    display petrol method
+     */
     public void displayPetrol() {
 
         TextView pQueue = findViewById(R.id.txtPetrolQueueDisplayValue);
@@ -142,6 +187,9 @@ public class ShedOwnerActivity extends AppCompatActivity {
     }
 
 
+    /*
+    display diesel method
+     */
     public void displayDiesel() {
         TextView dDisplayValue = findViewById(R.id.txtDieselLiterValue);
         TextView dQueueValue = findViewById(R.id.txtQueueDisplayValue);
@@ -173,16 +221,12 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 
+    /*
+    display shed time method
+     */
     public void displayShedTime() {
         TextView shedOpenTime = findViewById(R.id.txtOpenTimeValue);
         TextView shedCloseTime = findViewById(R.id.txtCloseTimeValue);
@@ -206,15 +250,11 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
+    /*
+    remove petrol method
+     */
     public void removePetrol() {
         System.out.println(phoneNUMBER);
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
@@ -233,15 +273,11 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
+    /*
+    remove diesel method
+     */
     public void removeDiesel() {
         System.out.println(phoneNUMBER);
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
@@ -260,15 +296,11 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
+    /*
+    remove time method
+     */
     public void removeTime() {
         System.out.println(phoneNUMBER);
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
@@ -287,4 +319,5 @@ public class ShedOwnerActivity extends AppCompatActivity {
             }
         });
     }
+
 }

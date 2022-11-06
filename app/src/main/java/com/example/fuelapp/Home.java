@@ -1,6 +1,5 @@
 package com.example.fuelapp;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,10 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.fuelapp.Database.DBHandler;
 import com.example.fuelapp.Database.ShedAdapter;
 import com.example.fuelapp.domain.FuelModel;
 import com.example.fuelapp.service.RetrofitClient;
@@ -26,8 +22,11 @@ import retrofit2.Response;
 
 
 public class Home extends AppCompatActivity {
-    DBHandler db;
+//    DBHandler db;
 
+    /*
+    initialize variables
+     */
     ListView shedList;
     EditText location;
     Button searchloc;
@@ -55,6 +54,9 @@ public class Home extends AppCompatActivity {
 
     }
 
+    /*
+    search method
+     */
     public void searchLoc (String location){
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
         Call<List<FuelModel>> call = stationService.searchLocation(location);

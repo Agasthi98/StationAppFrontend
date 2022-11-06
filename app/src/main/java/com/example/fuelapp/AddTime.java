@@ -59,6 +59,9 @@ public class AddTime extends AppCompatActivity {
 
     }
 
+    /*
+    add shed time method
+     */
     public void addShedTime(String ArrivalTime,String EndTime, String StationName,String StationNumber,String StationLocation){
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
         Call<FuelModel> call = stationService.createShedAvailableTime(ArrivalTime,EndTime,StationName,StationNumber,StationLocation);

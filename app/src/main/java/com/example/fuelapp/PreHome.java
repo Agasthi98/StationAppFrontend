@@ -17,9 +17,15 @@ public class PreHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pre_home);
 
+        /*
+        declare two button for diesel and petrol
+         */
         toDiesel = (Button) findViewById(R.id.btnDiesel);
         toPetrol = (Button) findViewById(R.id.btnPetrol);
 
+        /*
+        to diesel on click listner
+         */
         toDiesel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,6 +35,9 @@ public class PreHome extends AppCompatActivity {
             }
         });
 
+        /*
+        to petrol on click listner
+         */
         toPetrol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

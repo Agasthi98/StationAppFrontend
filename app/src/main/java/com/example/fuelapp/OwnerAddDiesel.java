@@ -39,6 +39,9 @@ public class OwnerAddDiesel extends AppCompatActivity {
         dieselQueueLength = (EditText) findViewById(R.id.txtDieselQueueLength);
         addDiesel = (Button) findViewById(R.id.btnAddDiesel);
 
+        /*
+        add diesel button listner
+         */
         addDiesel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,13 +50,22 @@ public class OwnerAddDiesel extends AppCompatActivity {
                 String dEndTime = dieselEndTime.getText().toString();
                 String dQueueLength = dieselQueueLength.getText().toString();
 
+                /*
+                get static variable values
+                 */
                 String StationName = userNAME;
                 String StationNumber = phoneNUMBER;
                 String StationLocation = VTYPE;
 
+                /*
+                input form validation ( check the values in input fields are empty or not )
+                 */
                 if(dLiters.equals("") || dStartTime.equals("") || dEndTime.equals("") || dQueueLength.equals("")){
                     Toast.makeText(OwnerAddDiesel.this, "Fill All the field", Toast.LENGTH_SHORT).show();
                 }else{
+                    /*
+                   call add diesel method
+                     */
                     System.out.println("details:===="+StationName+StationNumber+StationLocation);
                     addDiesel(dLiters,dStartTime,dEndTime,dQueueLength,StationName,StationNumber,StationLocation);
                     Intent intent = new Intent(getApplicationContext(), ShedOwnerActivity.class);
@@ -63,6 +75,9 @@ public class OwnerAddDiesel extends AppCompatActivity {
         });
     }
 
+    /*
+    add diesel method
+     */
     public void addDiesel(String Liters,String ArrivalTime,String EndTime, String QueueLength, String StationName,String StationNumber,String StationLocation){
         StationService stationService = RetrofitClient.getRetrofitInstance().create(StationService.class);
         Call<FuelModel> call = stationService.createDiesel(Liters,ArrivalTime,EndTime,QueueLength,StationName,StationNumber,StationLocation);

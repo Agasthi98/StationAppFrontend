@@ -31,8 +31,14 @@ public class StationOwnerSignUp extends AppCompatActivity {
         StationConfirmPassword = (EditText) findViewById(R.id.txtStationConfirmPassword);
         stationSignUp = (Button) findViewById(R.id.btnStationOwnerSignUp);
 
+        /*
+        call local database
+         */
         myDB = new DBHandler(this);
 
+        /*
+        station sign up method
+         */
         stationSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,13 +49,21 @@ public class StationOwnerSignUp extends AppCompatActivity {
                 String sCPassword = StationConfirmPassword.getText().toString();
                 String role = "ShedOwner";
 
+                /*
+                check input fields
+                 */
                 if(sName.equals("") || sPhone.equals("") || sLocation.equals("") || sPassowrd.equals("")){
                     Toast.makeText(StationOwnerSignUp.this, "Fill All the field", Toast.LENGTH_SHORT).show();
                 } else{
-                    //check the password and confirm password
+                    /*
+                    check the password and confirm password
+                     */
                     if(sPassowrd.equals(sCPassword)){
                         Boolean userCkeckResult =  myDB.checkusername((sPhone));
                         if(userCkeckResult == false){
+                            /*
+                            check existing user
+                             */
                             Boolean regResult =  myDB.addInfo(sName,sPhone,role,sLocation,sPassowrd);
                             if(regResult == true){
                                 Toast.makeText(StationOwnerSignUp.this, "Registration success", Toast.LENGTH_SHORT).show();

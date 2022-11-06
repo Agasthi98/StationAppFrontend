@@ -1,8 +1,9 @@
 package com.example.fuelapp.domain;
 
+/*
+shed list model
+ */
 public class ShedListModel {
-
-
 
     private String textview1;
     private String textview2;
